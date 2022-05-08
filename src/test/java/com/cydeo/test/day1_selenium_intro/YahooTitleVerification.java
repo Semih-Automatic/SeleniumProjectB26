@@ -24,7 +24,11 @@ public class YahooTitleVerification {
 
         driver.manage().window().maximize(); // MAXIMIZES THE SCREEN
 
-        System.out.println("driver.getTitle() = " + driver.getTitle()); // PRINTS OUT THE TITLE
+        String actualTitle = driver.getTitle(); // STORES TITLE AS STRING VARIABLE
+
+        String expectedTitle = "Yahoo"; // DECLARE AN ASSIGN expectedTitle VARIABLE
+
+        System.out.println(actualTitle.contains(expectedTitle) ? "Passed": "Failed"); // TERNARY WHICH CHECKS IF ACTUAL CONTAINS EXPECTED VALUE
 
         Thread.sleep(2000); // SLOWS DOWN THE DRIVER FOR 2000 ms
 
