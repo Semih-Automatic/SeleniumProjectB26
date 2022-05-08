@@ -14,11 +14,17 @@ public class Basic_Navigations {
         // Create instance of webdriver
         WebDriver driver = new ChromeDriver();
 
+        Thread.sleep(1000); //Gives us time before running the next line of code
+
+        // It is important to open web page on full screen when testing on automation. So start by making the page full screen before you run any other actions.
+        //driver.manage().window().fullscreen(); // DRIVER, MANAGE IT, MANAGE THE WINDOW, FULLSCREEN IT
+        driver.manage().window().maximize(); // IF THERE IS NO FULLSCREEN OPTION YOU CAN MAXIFY THE SCREEN INSTEAD
+
         driver.get("https://www.etsy.com");
 
         driver.navigate().to("https://www.etsy.com"); // These both do the same thing, however navigate has more options like going forward and backward
 
-        Thread.sleep(3000); //Gives us time before running the next line of code
+        Thread.sleep(2000);
 
         driver.navigate().back(); // Takes us one page back
 
@@ -40,6 +46,8 @@ public class Basic_Navigations {
 
         driver.get("https://www.tesla.com");
 
+        Thread.sleep(2000);
+
         System.out.println(driver.getTitle());
 
         driver.getCurrentUrl(); // //Return type stored as a String which grabs the URL of the page
@@ -52,7 +60,9 @@ public class Basic_Navigations {
 
         driver.close(); //This will close the current Page but driver still open in the background
 
-        //driver.quit(); // closes the driver completely
+        driver.quit(); // closes the driver completely
+
+
 
 
     }
