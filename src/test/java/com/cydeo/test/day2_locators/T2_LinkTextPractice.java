@@ -36,7 +36,7 @@ public class T2_LinkTextPractice {
 
         abLinkText.click(); // CLICKS ON THE OBJECT TO OPEN IT
 
-        String actualTitle = driver.getTitle(); // STORES TITLE AS STRING VARIABLE
+        String actualTitle = driver.getTitle(); // DECLARES AND STORES TITLE AS STRING VARIABLE
 
         String expectedTitle = "No A/B Test"; // DECLARE AN ASSIGN expectedTitle VARIABLE
 
@@ -46,11 +46,11 @@ public class T2_LinkTextPractice {
 
         driver.navigate().back(); // NAVIGATES THE PAGE BACK BY ONE
 
-        String actualTitle2 = driver.getTitle(); // STORES TITLE AS STRING VARIABLE
+        actualTitle = driver.getTitle(); // STORES TITLE AS STRING VARIABLE
 
-        String expectedTitle2 = "Practice"; // DECLARE AN ASSIGN expectedTitle VARIABLE
+        expectedTitle = "Practice"; // ASSIGN NEW expectedTitle VARIABLE
 
-        System.out.println((actualTitle2.equals(expectedTitle2)) ? "Home Page Title Verification Passed" : "Home Page Title Verification Failed");
+        System.out.println((actualTitle.equals(expectedTitle)) ? "Home Page Title Verification Passed" : "Home Page Title Verification Failed");
         // TERNARY WHICH CHECKS IF ACTUAL CONTAINS EXPECTED VALUE
 
         Thread.sleep(1000); // SLOWS DOWN THE DRIVER FOR 1000 ms
