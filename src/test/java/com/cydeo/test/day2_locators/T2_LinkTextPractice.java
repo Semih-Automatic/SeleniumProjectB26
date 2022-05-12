@@ -15,6 +15,7 @@ TC #2: Back and forth navigation
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class T2_LinkTextPractice {
@@ -31,7 +32,9 @@ public class T2_LinkTextPractice {
 
         Thread.sleep(1000); // SLOWS DOWN THE DRIVER FOR 1000 ms
 
-        driver.findElement(By.linkText("A/B Testing")).click(); // LOCATES BY THE HYPERLINKED ELEMENT CONTENT AND CLICKS IT
+        WebElement abLinkText = driver.findElement(By.linkText("A/B Testing")); // LOCATES BY THE HYPERLINKED ELEMENT CONTENT AND STORES IT AS AN OBJECT
+
+        abLinkText.click(); // CLICKS ON THE OBJECT TO OPEN IT
 
         String actualTitle = driver.getTitle(); // STORES TITLE AS STRING VARIABLE
 
