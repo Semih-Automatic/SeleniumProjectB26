@@ -30,6 +30,6 @@ public class T1_FacebookTitleVerification {
 
         Thread.sleep(2000); // SLOWS DOWN THE DRIVER FOR 2000 ms
 
-        driver.quit(); // CLOSES THE TAB
+        driver.quit(); // CLOSES THE CHROME DRIVER
     }
 }
