@@ -1,10 +1,9 @@
 package com.cydeo.test.day3_Css_getText_getAttribute;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import com.cydeo.test.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class T3_getAttribute_Css {
 
@@ -14,8 +13,7 @@ public class T3_getAttribute_Css {
         //TC #3: NextBaseCRM, locators, getText(), getAttribute() practice
 
         // 1- Open a chrome browser
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
+        WebDriver driver = WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
 
         //2- Go to: https://login1.nextbasecrm.com/
