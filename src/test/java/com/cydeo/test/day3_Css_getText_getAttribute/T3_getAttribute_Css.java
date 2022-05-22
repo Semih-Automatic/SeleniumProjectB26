@@ -21,8 +21,8 @@ public class T3_getAttribute_Css {
         //2- Go to: https://login1.nextbasecrm.com/
         driver.get("https://login1.nextbasecrm.com/");
 
-        //        3- Verify “Log in” button text is as expected:
-//        Expected: Log In
+        //3- Verify “Log in” button text is as expected:
+        //Expected: Log In
 
         // Located using type attribute
         // WebElement loginButton = driver.findElement(By.cssSelector("input[type='submit']"));
@@ -36,9 +36,9 @@ public class T3_getAttribute_Css {
         String expectedBtnText = "Log In";
         String actualBtnText = loginButton.getAttribute("value");
 
-        if(actualBtnText.equals(expectedBtnText)){
+        if (actualBtnText.equals(expectedBtnText)) {
             System.out.println("Log In button text verification passed!");
-        }else{
+        } else {
             System.out.println("Log In button text verification failed!");
         }
 
