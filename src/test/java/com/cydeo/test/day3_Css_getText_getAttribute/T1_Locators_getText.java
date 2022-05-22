@@ -42,7 +42,7 @@ public class T1_Locators_getText {
         if (expectedText.equals(actualText)){
             System.out.println("Error Message Verification Passed!");
         } else {
-            System.out.println("Error Message Verification Faailed!");
+            System.out.println("Error Message Verification Failed!");
         }
 
         driver.quit();
