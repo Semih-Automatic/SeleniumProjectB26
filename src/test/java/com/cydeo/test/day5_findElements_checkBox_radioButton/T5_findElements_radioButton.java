@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class T5_findElements_radioButton {
 
@@ -15,6 +16,7 @@ public class T5_findElements_radioButton {
         //1. Open Chrome browser
         WebDriver driver = WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
+
 
         //2. Go to https://practice.cydeo.com/radio_buttons
         driver.get("https://practice.cydeo.com/radio_buttons");
