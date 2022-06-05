@@ -27,7 +27,7 @@ public class TestNG_Intro {
         System.out.println("Runs After Every Method");
     }
 
-    @Test (priority = 2)
+    @Test (priority = 2 , dependsOnMethods = "test3") // the depends on here makes sure that this test only runs if the other test passes
     public void test1(){
         System.out.println("Test 1 is running..."); //Total tests run: 1, Passes: 0, Failures: 0, Skips: 0
         String actual = "apple";
