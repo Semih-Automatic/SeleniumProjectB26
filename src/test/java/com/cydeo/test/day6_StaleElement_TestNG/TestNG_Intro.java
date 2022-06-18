@@ -45,5 +45,7 @@ public class TestNG_Intro {
         System.out.println("Test 3 is running..."); //THIS ONE RUNS SINCE IT HAS THE @Test annotation in the beginning
         Assert.assertEquals("orange", "orange", "Test didnt pass!");
 
+
+
     }
 }

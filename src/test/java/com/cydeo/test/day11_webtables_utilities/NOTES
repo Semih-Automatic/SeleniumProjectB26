@@ -1,0 +1,64 @@
+  WEBTABLES:
+
+Q: HOW DO WE HANDLE WEBTABLES USING SELENIUM?
+A: We write custom locators using xpath or cssSelector and get the data we want to get.
+
+Q: How do we create HTML web tables?
+A: <table> tag creates html web tables.
+
+#1- We create the table tag
+#2- We create rows first
+#3- We create cells inside of the rows
+
+td: table data    -> used to create cells inside of a table
+th: table header  -> used to create cells, but it will make content bolded and centered
+tr: table row     -> used to create rows inside of table
+
+
+------------------------------------------------------------------------------------
+
+P1_ WRITE A LOCATOR THAT RETURNS THE TABLE 1 ITSELF
+
+
+
+P2_ WRITE A LOCATOR THAT RETURNS ALL OF THE ROWS INSIDE OF TABLE 1
+
+
+
+P3_ WRITE A LOCATOR THAT RETURNS ALL OF THE ROWS INSIDE OF BODY - TABLE 1
+
+
+
+P4_ WRITE A LOCATOR THAT RETURNS ONLY 3RD ROW IN THE BODY
+
+
+
+P5_ WRITE A LOCATOR THAT RETURNS ALL OF THE CELLS IN ALL OF THE ROW (IN BODY)
+
+
+
+P6_ WRITE A LOCATOR THAT RETURNS ALL OF THE FIRST NAMES FROM TABLE
+
+
+
+P7_ WRITE A LOCATOR THAT RETURNS FRANKS CELL SPECIFICALLY
+
+
+
+P8_ WRITE A LOCATOR THAT RETURNS FRANKS CELL SPECIFICALLY USE FRANKS TEXT
+
+
+
+P9_ WRITE A LOCATOR THAT RETURNS $100 CELL SPECIFICALLY USE FRANKS TEXT
+
+
+
+P10_ WRITE A LOCATOR THAT RETURNS JASONS DUE AMOUNT BASED ON JASONS NAME
+
+
+
+P11_ WRITE A LOCATOR THAT RETURNS Tim's last name  BASED ON tim's NAME
+
+
+
+P12_ WRITE A LOCATOR THAT RETURNS ALL EMAILS THAT HAS $50 DUE DATE

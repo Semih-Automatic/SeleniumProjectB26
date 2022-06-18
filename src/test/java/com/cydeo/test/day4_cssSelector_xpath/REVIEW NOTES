@@ -1,90 +1,118 @@
-05/29/2022
-Today's Schedule: - Xpath Review
-- Handling Dynamic WebElement
-- isDisplayed false practice
-- FindElements
-- Checkbox and Radio Button
-=========================================================================
 
-- Whats is xpath?
-    - XPATH is one of 8 locators of Selenium.
-    - XPATH allows us to create custom locators.
-    - We can use any attribute and any attribute value to create our own custom locator.
-    - Xpath can move from parent to child and child to parent
-    - How do we move from parent to direct child?
-    - We use "/" single slash to move to direct child
+                   =============  XPATH  ==============
 
-1-    <div id="uh98">
-2-        <div>
-3-            <a href="https://google.com"> Google 1 </a>
-4-        </div>
-5-        <div>
-6-            <a href="https://google.com"> Google 2 </a>
-7-        </div>
-8-        <div>
-9-            <a href="https://google.com"> Google 3 </a>
-10-       </div>
-    </div>
+- xpath is one of 8 locators in Selenium.
+- xpath allows us to create custom locators using any given attribute and value.
+- We can also use the text of the web element create locator using XPATH.
 
-ex#1: write locator returning line 2 using "/"
-    //div[@id='uh98']/div
-ex#2: write locator returning line 3 using "/"
-    //div[@id='uh98']/div/a
-ex#3: write locator returning line 5
-    //div[@id='uh98']/div   --> 1 of 3
-    (//div[@id='uh98']/div)[2] --> This would return us the 2nd div (line #5)
+    - xpath syntax is different than cssSelector.
 
-==========================================================
-- How do we move to any child using xpath?
-    - We use "//" double slash to move to any child.
-    - What does "//" means in xpath?
-    - It means jump to the point I will be giving to you.
-    - Or start from anywhere.
-    - Indexing using xpath locator:
-    - If there are more than 1 matching results for an xpath locator, we can use indexes to select exactly which one we want.
+There are 2 types of XPATH:
 
-<div>
-    <a href="https://google.com"> Google 1 </a>
-    <a href="https://google.com"> Google 2 </a>
-    <a href="https://google.com"> Google 3 </a>
-</div>
+#1- ABSOLUTE XPATH:
+    - Starts with single slash "/"
+    - Starts looking from the root/parent/ascendent element in the HTML page
+    - It starts from the html tag and it goes 1 by 1 until we reach the desired web element
+    - Usually it is very very long, and it is NOT dependable.
+    - Because it is long, it is not stable, therefore it is NOT used much.
+    - It is not recommended to use it as locator in our code.
 
-ex: //a[@href='https://google.com'] --> this will return 3 matching results.
+    <html>
+        <head>
+            <title> Title of the page </title>
+        </head>
+        <body>
+            <div>
+                <div> 
+                    <a href=""> TEXT </a>
+                </div>
+            </div>
 
-- I can use indexes to select exactly a specific one.
-    (//a[@href='https://google.com'])[1] ---> returns Google 1
-    (//a[@href='https://google.com'])[2] ---> returns Google 2
-    (//a[@href='https://google.com'])[3] ---> returns Google 3
-- *** For xpath indexes start from 1
-===================================================================
-- How do we move from child to parent?
-    - We use "/.."
-    - We do not have to provide any tag name when we are moving from child to parent.
-    - It will automatically move to direct parent
+        </body>
 
-1-    <div id="uh98">
-2-        <div>
-3-            <a href="https://google.com"> Google 1 </a>
-4-        </div>
-5-        <div>
-6-            <a href="https://google.com"> Google 2 </a>
-7-        </div>
-8-        <div>
-9-            <a href="https://google.com"> Google 3 </a>
-10-        </div>
-11- </div>
-ex: Locate Google 2 link using its text with xpath
-    1-    //a[.='Google 2']      --> this locator is returning line 6
-    2-    //a[.='Google 2']/..   --> this locator is returning line 5
-    3-   //a[.='Google 2']/../.. --> this locator is returning line 1
-======================================================================
---> P.I.Q:
-- How do you handle dynamic web elements?
-- How do you handle web elements with dynamic attribute value?
-    - Dynamic attribute value: means some part of an attribute value is changing when the page is refreshed.
+    </html>
+                                
+ex: locating link <a> tag above using absolute xpath
 
-Answer#1: we use xpath methods: contains, starts-with, and ends-with
-1-    //tagName[contains(@attribute, 'value')]
-2-    //tagName[starts-with(@attribute, 'value')]
-3-    //tagName[ends-with(@attribute, 'value')]
-Answer#2: we can also locate a static (stable) parent or child web element, locate that, and move to desired web element.
+    /html/body/div/div/a
+
+- With any minimal change in the HTML code, this locator will be breaking. Therefore, not good practice to use ABSOLUTE XPATH.
+
+
+#2- RELATIVE XPATH:
+    - Starts with double slash "//"
+    - "//" means that you can start anywhere in the HTML page
+    - Since we are allowed to start anywhere in the HTML page, relative xpath is very dependable and useful
+    - The only time your relative xpath is supposed to be breaking is if ONLY the attribute value you use is changed.
+
+--> MAIN SYNTAX
+
+    //tagName[@attribute='value']
+
+
+ex: <a href="https://www.tesla.com" id="uh7" name="bb95"> TESLA </a>
+
+#1- locating with href    : //a[@href='https://www.tesla.com']
+#2- locating with id     : //a[@id='uh7']
+#3- locating with name     : //a[@name='bb95']
+
+
+    - We are NOT limited with id, name, class, or href attributes.
+    - We can use any custom attribute and their value with XPATH locator.
+
+
+COMMONLY USED XPATH SYNTAXES:
+
+    #1 - //tagName[@attribute='value']
+    #2 - //tagName[contains(@attribute, 'value')]
+    #3 - //tagName[.='text']
+    #4 - //*[@attribute='value']
+
+EXPLANATIONS:
+    #1- //tagName[@attribute='value']
+    
+    - We are saying, get me the web element with given tagName, where attribute value is as provided.
+
+    #2- //tagName[contains(@attribute, 'value')]
+    
+    - Looks for the tagName that has matching or containing attribute value
+
+    #3- //tagName[.='text']
+    
+    - This locator will return the web element with given text.
+    - Works in similar way to linkText locator. But linkText only works with links.
+    - Xpath will work with any web element.
+    - . --> stands for text in xpath
+
+    #4- //*[@attribute='value']
+
+    - * --> is used when we do not want to search by a tagName.
+    - If we want to be less specific, we pass *, and it will only match and return whatever attribute and value is provided. 
+
+
+     === HOW TO GO FROM CHILD TO PARENT and PARENT TO CHILD IN XPATH? ===
+          
+-We go from parent to child using "/“
+-We use "/.." this goes from child to parent
+-We use ”/following-sibling::tagname” this goes to the next sibling.
+-We use “/preceding-sibling::tagname”this goes to previous sibling.
+
+
+            ==== CSS vs XPATH ====
+
+-Css is slightly faster than xpath on IE, other browsers it is negligible.
+-Css is easier to read and write
+
+1.css cannot locate using text of web elements
+xpath://*[.="Don't Click!"]
+css: NA
+
+2.It cannot find from matches base on index (different parent)
+xpath:--> (xpathFormula)[indexNumber]
+css: NA
+
+3.child to parent NA
+//button/../ --> goes back to parent
+CSS : NA
+
+xpath can do more than css, but it is little bit complex
